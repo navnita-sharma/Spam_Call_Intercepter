@@ -1,54 +1,269 @@
-Guardian: Advanced AI Scam Interceptor
-Guardian is a privacy-first, offline-first mobile security application designed specifically to protect elderly users from telephonic financial scams. Using on-device AI, it monitors active calls in real-time, detects suspicious patterns, and takes immediate preventive action.
+# 🛡️ Guardian: Advanced AI Scam Interceptor
 
-🌟 Key Features
-1. Real-Time Scam Interception
-Live Transcript Overlay: Displays a non-intrusive textual transcript of the incoming caller's speech directly on top of the call screen.
-4-Layer NLP Engine: Detects threats using a combination of:
-Keyword Blacklist: Immediate detection of dangerous words.
-Regex Pattern Matching: Detects suspicious phrases like "KYC Expiring" or "OTP required".
-Finite State Machine (FSM): Tracks the "Intent Sequence" (Authority -> Urgency -> Action).
-Vector Similarity (FAISS): Semantic intent classification using TensorFlow Lite.
-2. Radical Prevention
-Automatic Hardware Mute: At the moment a scam is confirmed, the app mutes the phone's microphone to prevent the user from accidentally sharing sensitive information (OTP, PIN, etc.).
-Continuous Alerts: Triggers a loud siren (customizable) and continuous haptic feedback (vibration) that persists until the user disconnects.
-3. Privacy & Security
-100% Offline Processing: Uses Vosk STT and TFLite for all analysis. No audio or transcript ever leaves the device—ensuring total privacy.
-Whitelist Integration: Automatically disables scanning for trusted contacts (family members/friends) to ensure zero false positives for loved ones.
-4. Elderly-Centric Design
-Localized Experience: Full UI and detection support for English, Hindi, Marathi, and Bengali.
-Simplified UI: Large, bold warnings and high-contrast visuals designed for accessibility.
-Simulated Call Mode: A built-in training module that allows users to test the app's triggers in a safe, controlled environment.
-🛠 Tech Stack
-Language: Kotlin (Android Native)
-UI Framework: Jetpack Compose
-Speech-to-Text: Vosk-Android (Offline)
-AI/NLP Engine: FAISS (Vector Inference)
-System Integration: Android Accessibility Service (for real-time overlay)
-Hardware Control: AudioManager (for hardware-level muting)
-🚀 Getting Started
-Prerequisites
-Android 8.0 (Oreo) or higher.
-Physical device recommended for testing the Call Overlay.
-Target SDK: 34 (Optimized for 16 KB Page Size devices).
-Installation
-Clone the repository.
-Open in Android Studio Ladybug (or newer).
-Ensure you have the required Vosk model directory (model-en-in) placed in the assets folder.
-Build and Run.
-Required Permissions
-Guardian requires specific permissions to function correctly:
+**Guardian** is a privacy-first, offline-first Android security application designed to protect elderly users from telephonic financial scams. Using on-device Artificial Intelligence, the app monitors active calls in real-time, detects suspicious scam patterns, and takes immediate preventive action before sensitive information can be disclosed.
 
-Accessibility Service: To render the overlay and monitor call events.
-Record Audio: To process STT (offline only).
-Read Phone State & Contacts: To manage the whitelist and detect active calls.
-Display Over Other Apps: For the warning alerts.
-⚠️ Disclaimer
-Guardian is an assistive tool and does not guarantee 100% protection against all types of advanced social engineering. It is designed to act as a "guardian angel" that alerts users to standard, documented scam patterns.
+---
 
-How To Start
-Step 1: Clone the repo -- git clone https://github.com/raju-raushan/scam-call-interceptor Step 2: Open the folder in code editor (Android Studio) and run the command in terminal -- /gradlew build Step 3: Start the app from the start button after selecting your device to run the app
+## 🌟 Overview
 
-To use full power of app we need to install it as a system app
+Financial scams targeting senior citizens have become increasingly sophisticated. Fraudsters often exploit trust, urgency, and fear to obtain OTPs, banking credentials, and personal information.
 
-Built for the safety of our elders.
+Guardian acts as a real-time AI-powered companion that continuously analyzes call conversations, identifies scam attempts, and actively prevents victims from sharing sensitive information.
+
+---
+
+## ✨ Key Features
+
+### 🎙️ Real-Time Scam Detection
+
+* Live transcript overlay during ongoing calls.
+* Continuous speech monitoring using offline Speech-to-Text.
+* Instant scam risk assessment without cloud dependency.
+
+### 🧠 Advanced 4-Layer NLP Engine
+
+Guardian combines multiple detection techniques for high accuracy:
+
+#### 1. Keyword Blacklist
+
+Detects dangerous terms such as:
+
+* OTP
+* Bank Verification
+* KYC Update
+* Account Suspension
+* Credit Card Block
+
+#### 2. Regex Pattern Matching
+
+Identifies suspicious phrases including:
+
+* "Your KYC is expiring"
+* "Share your OTP"
+* "Verify your account immediately"
+
+#### 3. Finite State Machine (FSM)
+
+Tracks scam intent progression:
+
+**Authority → Urgency → Action**
+
+Example:
+
+* "I am calling from your bank."
+* "Your account will be blocked."
+* "Share the OTP now."
+
+#### 4. Semantic Intent Classification
+
+Uses FAISS vector similarity search with TensorFlow Lite embeddings to detect scam intentions even when attackers use different wording.
+
+---
+
+## 🚨 Radical Prevention System
+
+### 🎤 Automatic Microphone Muting
+
+Once a scam is confidently detected:
+
+* Guardian automatically mutes the device microphone.
+* Prevents accidental disclosure of OTPs, PINs, passwords, or banking information.
+
+### 🔊 Emergency Warning Alerts
+
+* Loud customizable siren.
+* Continuous vibration feedback.
+* Persistent warning notification.
+* Alerts remain active until the call is disconnected.
+
+---
+
+## 🔒 Privacy & Security
+
+### 100% Offline Processing
+
+Guardian performs all processing locally on the device.
+
+No data is:
+
+* Uploaded
+* Stored externally
+* Shared with third-party services
+
+### Technologies Used
+
+* Vosk Speech-to-Text
+* TensorFlow Lite
+* FAISS Vector Search
+
+All audio and transcripts remain on the user's device.
+
+---
+
+## 👨‍👩‍👧‍👦 Whitelist Protection
+
+Trusted contacts are automatically excluded from monitoring.
+
+Examples:
+
+* Family Members
+* Friends
+* Emergency Contacts
+
+This significantly reduces false positives while ensuring uninterrupted communication with loved ones.
+
+---
+
+## 🌍 Elderly-Centric Design
+
+### Multi-Language Support
+
+* English
+* Hindi
+* Marathi
+* Bengali
+
+### Accessibility Features
+
+* Large warning messages
+* High-contrast visuals
+* Easy-to-understand alerts
+* Simplified navigation
+
+### Simulated Scam Training Mode
+
+Users can safely test:
+
+* Scam triggers
+* Warning alerts
+* Protection mechanisms
+
+without receiving real scam calls.
+
+---
+
+## 🛠️ Tech Stack
+
+| Category           | Technology              |
+| ------------------ | ----------------------- |
+| Language           | Kotlin                  |
+| Platform           | Android Native          |
+| UI Framework       | Jetpack Compose         |
+| Speech Recognition | Vosk Android            |
+| AI/NLP             | TensorFlow Lite + FAISS |
+| Overlay System     | Accessibility Service   |
+| Hardware Control   | AudioManager            |
+| Build System       | Gradle                  |
+
+---
+
+## 📱 System Requirements
+
+* Android 8.0 (Oreo) or higher
+* Physical Android device recommended
+* Target SDK 34
+* Android Studio Ladybug or newer
+
+---
+
+## 🚀 Installation
+
+### Step 1: Clone Repository
+
+```bash
+git clone https://github.com/raju-raushan/scam-call-interceptor.git
+```
+
+### Step 2: Open Project
+
+Open the project in:
+
+```text
+Android Studio Ladybug (or newer)
+```
+
+### Step 3: Add Vosk Model
+
+Place the speech model folder inside:
+
+```text
+app/src/main/assets/model-en-in
+```
+
+### Step 4: Build Project
+
+```bash
+./gradlew build
+```
+
+### Step 5: Run Application
+
+* Connect Android device.
+* Select the device in Android Studio.
+* Click Run.
+
+---
+
+## 🔑 Required Permissions
+
+Guardian requires the following permissions:
+
+### Accessibility Service
+
+Used for:
+
+* Overlay display
+* Call monitoring
+
+### Record Audio
+
+Used for:
+
+* Offline speech recognition
+
+### Read Phone State
+
+Used for:
+
+* Detecting active calls
+
+### Read Contacts
+
+Used for:
+
+* Managing trusted contacts whitelist
+
+### Display Over Other Apps
+
+Used for:
+
+* Warning overlays
+* Scam alerts
+
+---
+
+## 📈 Future Enhancements
+
+* Additional Indian language support
+* AI-powered scam risk scoring
+* Adaptive learning from emerging scam patterns
+* Emergency family notification system
+* Senior citizen dashboard
+* Scam analytics and reporting
+
+---
+
+## ⚠️ Disclaimer
+
+Guardian is an assistive security tool and does not guarantee protection against every possible social engineering attack. It is designed to identify known scam patterns, provide timely warnings, and reduce the likelihood of sensitive information disclosure.
+
+Users should always exercise caution when sharing personal or financial information over phone calls.
+
+---
+
+## ❤️ Mission
+
+Our mission is to empower senior citizens with accessible, privacy-preserving technology that helps them stay safe from financial fraud and digital scams.
+
+**Built with ❤️ for the safety and dignity of our elders.**
+
